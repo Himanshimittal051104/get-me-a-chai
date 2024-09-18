@@ -6,7 +6,7 @@ export default function Home() {
       <div >
         <div className=" flex justify-center pt-10 text-3xl font-bold mb-3">
           Get Me a Chai
-          <Image src="./tea.svg" alt="tea" className="mx-3 h-10" />
+          <Image src="./tea.svg" alt="tea"  className="mx-3 h-10" />
         </div>
         <div className="m-5">A crowdfunding platform for creators to fund their projects</div>
         <div className="m-5">A place where your fans can buy you a chai.Unleash the power of your fans and get your projects funded </div>
@@ -22,12 +22,12 @@ export default function Home() {
         <div className="pt-10 text-2xl font-bold">Your fans can buy you a Chai</div>
         <div className="flex justify-evenly mt-5 text-center">
           <div >
-            <div className="w-12 h-12 rounded-full bg-slate-400 justify-center my-5 overflow-hidden mx-auto"> <Image src="./fans.svg" alt="fans" className="h-12" /></div>
+            <div className="w-12 h-12 rounded-full bg-slate-400 justify-center my-5 overflow-hidden mx-auto"> <Image src="./fans.svg" alt="fans"   className="h-12" /></div>
             <div>Fans want to help</div>
             <div>Fans are available to support you</div>
           </div>
           <div className="justify-center">
-            <div className="w-12 h-12 rounded-full bg-slate-400 justify-center my-5 mx-auto"> <Image src="./coins.svg" alt="coins" /></div>
+            <div className="w-12 h-12 rounded-full bg-slate-400 justify-center my-5 mx-auto"> <Image src="./coins.svg" alt="coins"/></div>
             <div>Fans want to contribute</div>
             <div>Fans are available to support you</div>
           </div>

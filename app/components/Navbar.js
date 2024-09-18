@@ -10,7 +10,7 @@ import Image from 'next/image';
 
 
 const Navbar = () => {
-  const { data: session} = useSession();
+  const { data: session } = useSession();
   const router = useRouter();
   //status is the property of useSession to differentiate between the "loading" state, "authenticated" state, and "unauthenticated" state.
   // useEffect(() => {
@@ -52,13 +52,13 @@ const Navbar = () => {
   return (
     <>
       <nav className='flex items-center bg-slate-950 text-white justify-between h-12 sticky top-0'>
-        <div className='font-bold mx-2 p-2 flex gap-2 my-auto'>
-          <Image src="chai.svg" alt="chai" />
+        <div className='font-bold mx-2 p-2 flex gap-2 my-auto items-center'>
+          <Image src="chai.svg" alt="chai" ></Image>
           Get ME a Chai
         </div>
         <div className='flex relative'>
           <input placeholder='search your creator' className='bg-gradient-to-t from-[#7d3bef] from-0% to-[#6786ff] rounded-md text-white pr-1 pl-2 placeholder-white ' value={InputValue} onChange={handleInput} onKeyDown={handlekeyEnter} ></input>
-          {InputValue == '' ? (<Image src="search.svg" alt="search" className='absolute left-48 top-1'></Image>) : (<Image src="cancel.svg" className='absolute left-48 top-1' alt="cancel" onClick={handlekeyCancel} ></Image>)}
+          {InputValue == '' ? (<Image src="search.svg" alt="search"   className='absolute left-48 top-1'></Image>) : (<Image src="cancel.svg" className='absolute left-48 top-1' alt="cancel"  onClick={handlekeyCancel} ></Image>)}
           {session ? (
             <div className='relative'>
               <button id="dropdownDefaultButton" className="bg-gradient-to-t from-[#7d3bef] from-0% to-[#6786ff] px-4 mx-2 rounded-md py-1 my-auto inline-flex items-center relative" type="button">Welcome {session.user.name}
