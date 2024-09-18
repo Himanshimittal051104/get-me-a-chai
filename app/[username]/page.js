@@ -34,8 +34,8 @@ const Username = () => {
 
   return (
     <div>
-    <div className=' cover'> 
-        <Image src="./landscape1.jpg" alt="image of backgroung"  className=' h-72 w-[100%] object-cover' />
+    <div className='cover'> 
+        <Image src="./landscape1.jpg" alt="image of backgroung"  className=' h- w-[100%] object-cover' />
     </div>
     <div className='h-1 bg-blue-950'></div>
     <div className='text-white text-center relative'>
