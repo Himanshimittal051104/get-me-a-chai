@@ -35,12 +35,12 @@ const Username = () => {
   return (
     <div>
     <div className='cover'> 
-        <Image src="./landscape1.jpg" alt="image of backgroung"  className=' h-72 w-[100%] object-cover' />
+        <Image src="./landscape1.jpg" alt="image of backgroung"  className=' h-72 w-[100%] object-fill' />
     </div>
     <div className='h-1 bg-blue-950'></div>
     <div className='text-white text-center relative'>
         <div className='w-20 h-20 rounded-full bg-black border-2 overflow-hidden border-black mx-auto absolute left-[47vw] -top-11'>
-            <Image src="./lion.jpeg" alt="image of lion"  /></div>
+            <Image src="./lion.jpeg" alt="image of lion" /></div>
         <div className='font-bold  pt-12'>@{username}</div>
         <div className='pt-3 text-gray-400'>Lets help @{username} to get a Chai !</div>
         <div className='pt-3 pb-5 text-gray-400'>56K members . 789 posts . $15,145/releases</div>
