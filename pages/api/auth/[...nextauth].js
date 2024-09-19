@@ -18,7 +18,7 @@ export default NextAuth({
           // const client=await mongoose.connect("mongodb://localhost:27017/chai");
           //by doing this previous statement it will create multiple connection at times when multiple users are signing in at the same time
           await connectDb();
-          // const currentUser=client.db("users").collection("users").findOne   ({email:email})
+          // const currentUser=client.db("users").collection("users").findOne({email:email})
           const currentUser = await User.findOne({email: email})
           if (!currentUser) {
             const newUser = await User.create({
