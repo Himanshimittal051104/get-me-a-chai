@@ -23,7 +23,7 @@ export default NextAuth({
           if (!currentUser) {
             const newUser = await User.create({
               email: email,
-              // username: email.split("@")[0],
+              username: email.split("@")[0],
             })
           }
         }
