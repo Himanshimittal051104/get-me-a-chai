@@ -4,7 +4,7 @@ import { useParams } from 'next/navigation';
 import Image from 'next/image';
 
 const Username = () => {
-    const { username } = useParams();
+    const {username} = useParams();
     const [inputvalue, setInputValue] = useState('');
     const [name, setName] = useState('');
     const [message, setMessage] = useState('');
@@ -21,7 +21,7 @@ const Username = () => {
         const response = await fetch('/api/create-order', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ amount: inputvalue  })
+            body: JSON.stringify({ amount: inputvalue,to_username: username, paymentform: { name, message }  })
         });
         const data = await response.json();
         const { order_id } = data;
@@ -31,7 +31,6 @@ const Username = () => {
             amount: inputvalue,
             currency: "INR",
             name: name,
-            description: "Payment for " + username,
             order_id: order_id,
             handler: function (response) {
                 console.log(response);
