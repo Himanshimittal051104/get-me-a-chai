@@ -4,7 +4,7 @@ import { useParams } from 'next/navigation';
 import Image from 'next/image';
 
 const Username = () => {
-    const {username} = useParams();
+    const { username } = useParams();
     const [inputvalue, setInputValue] = useState('');
     const [name, setName] = useState('');
     const [message, setMessage] = useState('');
@@ -17,39 +17,44 @@ const Username = () => {
     const handlePay20 = () => setInputValue(20);
     const handlePay30 = () => setInputValue(30);
 
-    const handlePay=async()=>{
-        const response = await fetch('/api/create-order', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ amount: inputvalue,to_username: username, paymentform: { name, message }  })
-        });
-        const data = await response.json();
-        const { order_id } = data;
+    const handlePay = async () => {
+        try {
+            const response = await fetch('/api/create-order', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ amount: inputvalue, to_username: username, paymentform: { name, message } })
+            });
+            const data = await response.json();
+            const { order_id } = data;
 
-        const options = {
-            key: process.env.KEY_ID,
-            amount: inputvalue,
-            currency: "INR",
-            name: name,
-            order_id: order_id,
-            handler: function (response) {
-                console.log(response);
-                alert("Payment Successful!");
-            },
-            prefill: {
+            const options = {
+                key: process.env.KEY_ID,
+                amount: inputvalue,
+                currency: "INR",
                 name: name,
-                email: "example@gmail.com",
-                contact: "9876543210" 
-            },
-            notes: {
-                message: message || "No message"
-            },
-            theme: {
-                color: "#3399cc"
-            }
-        };
-        const rzp1 = new window.Razorpay(options);
-        rzp1.open();
+                order_id: order_id,
+                handler: function (response) {
+                    console.log(response);
+                    alert("Payment Successful!");
+                },
+                prefill: {
+                    name: name,
+                    email: "example@gmail.com",
+                    contact: "9876543210"
+                },
+                notes: {
+                    message: message || "No message"
+                },
+                theme: {
+                    color: "#3399cc"
+                }
+            };
+            const rzp1 = new window.Razorpay(options);
+            rzp1.open();
+        }catch(error){
+            console.error('Error:', error);
+            alert('Payment failed. Please try again.');
+        }
     }
 
     return (
