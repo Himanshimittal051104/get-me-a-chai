@@ -4,10 +4,7 @@ import { useSession, signIn, signOut } from "next-auth/react"
 import Image from 'next/image';
 
 const login = () => {
-  // const { data: session} = useSession();
-  // if(session){
-  //   const username=`${session.user.name.replace(/\s+/g, '')}`;
-  // }
+ 
   return (
     <div>
       <div className="text-white text-center pt-10 text-2xl font-bold">Login to get Started</div>

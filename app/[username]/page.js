@@ -28,7 +28,7 @@ const Username = () => {
             const { order_id } = data;
 
             const options = {
-                key: process.env.KEY_ID,
+                key: process.env.NEXT_PUBLIC_KEY_ID,
                 amount: inputvalue,
                 currency: "INR",
                 name: name,

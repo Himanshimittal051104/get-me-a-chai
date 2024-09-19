@@ -9,7 +9,7 @@ export const initiate = async (amount,to_username, paymentform) => {
         var instance = new Razorpay({ key_id: process.env.KEY_ID, key_secret: process.env.KEY_SECRET})
     
         const options={
-            amount:Number.parseInt(amount),
+            amount:Number.parseInt(amount)*100,
             currency:"INR",
             receipt:`receipt#${new Date().getTime()}`,
             notes:{
