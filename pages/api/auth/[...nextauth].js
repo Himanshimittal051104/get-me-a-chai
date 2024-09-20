@@ -1,5 +1,14 @@
-let isConnected; // Track connection status
-
+import NextAuth from 'next-auth';
+import GitHubProvider from 'next-auth/providers/github';
+import User from '@/models/User';
+import connectDb from '@/db/connectDb';
+let isConnected;
+async function connectToDb() {
+  if (!isConnected) {
+    await connectDb();
+    isConnected = true;
+  }
+}
 export default NextAuth({
   providers: [
     GitHubProvider({
@@ -9,37 +18,35 @@ export default NextAuth({
     }),
   ],
   callbacks: {
-    async signIn({ user, account, profile }) {
+    async signIn({ user, account, profile, email, credentials }) {
       try {
-        // Connect to DB only if not already connected
-        if (!isConnected) {
-          await connectDb();
-          isConnected = true;
-        }
-
-        const email = profile.email;
-        const currentUser = await User.findOne({ email });
-        
-        if (!currentUser) {
-          const username = email.split("@")[0];
-          await User.create({
-            email,
-            username,
-          });
+        if (account.provider == "github") {
+          // const client=await mongoose.connect("mongodb://localhost:27017/chai");
+          //by doing this previous statement it will create multiple connection at times when multiple users are signing in at the same time
+          await connectToDb();
+          // const currentUser=client.db("users").collection("users").findOne({email:email})
+          const email=profile.email;
+          const currentUser = await User.findOne({email: email})
+          if (!currentUser) {
+            const username= email.split("@")[0];
+            const newUser = await User.create({
+              email: email,
+              username:username,
+            })
+          }else{
+            console.log("user already exist")
+          }
         }
         return true;
       } catch (error) {
         console.error("Error in signIn callback:", error);
         return false;
       }
+
     },
-    async session({ session }) {
+    async session({ session, token, user }) {
       try {
-        if (!isConnected) {
-          await connectDb();
-          isConnected = true;
-        }
-        
+        await connectToDb();
         const dbUser = await User.findOne({ email: session.user.email });
         if (dbUser) {
           session.user.name = dbUser.username;
@@ -51,4 +58,4 @@ export default NextAuth({
       }
     },
   }
-});
+})
