@@ -51,7 +51,7 @@ const Username = () => {
             };
             const rzp1 = new window.Razorpay(options);
             rzp1.open();
-        }catch(error){
+        } catch (error) {
             console.error('Error:', error);
             alert('Payment failed. Please try again.');
         }
@@ -60,29 +60,29 @@ const Username = () => {
     return (
         <div>
             <div className='cover'>
-                <Image src="./landscape1.jpg" alt="image of backgroung" className=' h-72 w-[100%] object-cover ' />
+                <Image src="/landscape1.jpg" alt="image of backgroung" width={965} height={288} className=' h-72 w-[100%] object-cover ' />
             </div>
             <div className='h-1 bg-blue-950'></div>
             <div className='text-white text-center relative'>
                 <div className='w-20 h-20 rounded-full bg-black border-2 overflow-hidden border-black mx-auto absolute left-[47vw] -top-11'>
-                    <Image src="./lion.jpeg" alt="image of lion" /></div>
+                    <Image src="/lion.jpeg" alt="image of lion" width={77} height={77} /></div>
                 <div className='font-bold  pt-12'>@{username}</div>
                 <div className='pt-3 text-gray-400'>Lets help @{username} to get a Chai !</div>
                 <div className='pt-3 pb-5 text-gray-400'>56K members . 789 posts . $15,145/releases</div>
             </div>
-            <div className='flex justify-center gap-3 pb-12 text-white'>
+            <div className='flex justify-center gap-3 pb-12 text-white '>
                 <div className='w-[40vw] max-h-[60vh] bg-slate-950 text-center overflow-y-auto scrollbar-hide px-10'>
                     <div className='font-bold my-2 py-5 text-center text-xl'>Top 10 Supporters</div>
-                    <div className='text-gray-400 my-2 flex'><div className='bg-white mr-3 border border-solid border-purple-950 rounded-full p-1 min-h-8 min-w-8'><Image src="user.svg" alt="profile pic"  ></Image></div><div><strong>{username}</strong> donated <strong>$</strong><strong>{username}</strong> with a message "<strong>{username}</strong>" . </div></div>
-                    <div className='mb-2 text-gray-400 flex'><div className='bg-white mr-3 border border-solid border-purple-950 rounded-full p-1'><Image src="user.svg" alt="profile pic"  ></Image></div><div><strong>{username}</strong> donated <strong>$</strong><strong>{username}</strong> with a message "<strong>{username}</strong>" . </div></div>
-                    <div className='mb-2 text-gray-400 flex'><div className='bg-white mr-3 border border-solid border-purple-950 rounded-full p-1'><Image src="user.svg" alt="profile pic"  ></Image></div><div><strong>{username}</strong> donated <strong>$</strong><strong>{username}</strong> with a message "<strong>{username}</strong>" . </div></div>
-                    <div className='mb-2 text-gray-400 flex'><div className='bg-white mr-3 border border-solid border-purple-950 rounded-full p-1'><Image src="user.svg" alt="user"  ></Image></div><div><strong>{username}</strong> donated <strong>$</strong><strong>{username}</strong> with a message "<strong>{username}</strong>" . </div></div>
-                    <div className='mb-2 text-gray-400 flex'><div className='bg-white mr-3 border border-solid border-purple-950 rounded-full p-1'><Image src="user.svg" alt="profile pic"  ></Image></div><div><strong>{username}</strong> donated <strong>$</strong><strong>{username}</strong> with a message "<strong>{username}</strong>" . </div></div>
-                    <div className='mb-2 text-gray-400 flex'><div className='bg-white mr-3 border border-solid border-purple-950 rounded-full p-1'><Image src="user.svg" alt="profile pic"  ></Image></div><div><strong>{username}</strong> donated <strong>$</strong><strong>{username}</strong> with a message "<strong>{username}</strong>" . </div></div>
-                    <div className='mb-2 text-gray-400 flex'><div className='bg-white mr-3 border border-solid border-purple-950 rounded-full p-1'><Image src="user.svg" alt="profile pic"  ></Image></div><div><strong>{username}</strong> donated <strong>$</strong><strong>{username}</strong> with a message "<strong>{username}</strong>" . </div></div>
-                    <div className='mb-2 text-gray-400 flex'><div className='bg-white mr-3 border border-solid border-purple-950 rounded-full p-1'><Image src="user.svg" alt="profile pic"  ></Image></div><div><strong>{username}</strong> donated <strong>$</strong><strong>{username}</strong> with a message "<strong>{username}</strong>" . </div></div>
-                    <div className='mb-2 text-gray-400 flex'><div className='bg-white mr-3 border border-solid border-purple-950 rounded-full p-1'><Image src="user.svg" alt="profile pic"  ></Image></div><div><strong>{username}</strong> donated <strong>$</strong><strong>{username}</strong> with a message "<strong>{username}</strong>" . </div></div>
-                    <div className='mb-8 text-gray-400 flex'><div className='bg-white mr-3 border border-solid border-purple-950 rounded-full p-1'><Image src="user.svg" alt="profile pic"  ></Image></div><div><strong>{username}</strong> donated <strong>$</strong><strong>{username}</strong> with a message "<strong>{username}</strong>" . </div></div>
+                    <div className='text-gray-400 my-2 flex justify-center'><div className='bg-white mr-3 border border-solid border-purple-950 rounded-full p-1 min-h-8 min-w-8'><Image src="user.svg" alt="profile pic" width={24} height={24}></Image></div><div><strong>{username}</strong> donated <strong>$</strong><strong>{username}</strong> with a message "<strong>{username}</strong>" . </div></div>
+                    <div className='mb-2 text-gray-400 flex justify-center'><div className='bg-white mr-3 border border-solid border-purple-950 rounded-full p-1'><Image src="user.svg" alt="profile pic" width={24} height={24}></Image></div><div><strong>{username}</strong> donated <strong>$</strong><strong>{username}</strong> with a message "<strong>{username}</strong>" . </div></div>
+                    <div className='mb-2 text-gray-400 flex justify-center'><div className='bg-white mr-3 border border-solid border-purple-950 rounded-full p-1'><Image src="user.svg" alt="profile pic" width={24} height={24}></Image></div><div><strong>{username}</strong> donated <strong>$</strong><strong>{username}</strong> with a message "<strong>{username}</strong>" . </div></div>
+                    <div className='mb-2 text-gray-400 flex justify-center'><div className='bg-white mr-3 border border-solid border-purple-950 rounded-full p-1'><Image src="user.svg" alt="user" width={24} height={24} ></Image></div><div><strong>{username}</strong> donated <strong>$</strong><strong>{username}</strong> with a message "<strong>{username}</strong>" . </div></div>
+                    <div className='mb-2 text-gray-400 flex justify-center'><div className='bg-white mr-3 border border-solid border-purple-950 rounded-full p-1'><Image src="user.svg" alt="profile pic" width={24} height={24}></Image></div><div><strong>{username}</strong> donated <strong>$</strong><strong>{username}</strong> with a message "<strong>{username}</strong>" . </div></div>
+                    <div className='mb-2 text-gray-400 flex justify-center'><div className='bg-white mr-3 border border-solid border-purple-950 rounded-full p-1'><Image src="user.svg" alt="profile pic" width={24} height={24}></Image></div><div><strong>{username}</strong> donated <strong>$</strong><strong>{username}</strong> with a message "<strong>{username}</strong>" . </div></div>
+                    <div className='mb-2 text-gray-400 flex justify-center'><div className='bg-white mr-3 border border-solid border-purple-950 rounded-full p-1'><Image src="user.svg" alt="profile pic" width={24} height={24}></Image></div><div><strong>{username}</strong> donated <strong>$</strong><strong>{username}</strong> with a message "<strong>{username}</strong>" . </div></div>
+                    <div className='mb-2 text-gray-400 flex justify-center'><div className='bg-white mr-3 border border-solid border-purple-950 rounded-full p-1'><Image src="user.svg" alt="profile pic" width={24} height={24} ></Image></div><div><strong>{username}</strong> donated <strong>$</strong><strong>{username}</strong> with a message "<strong>{username}</strong>" . </div></div>
+                    <div className='mb-2 text-gray-400 flex justify-center'><div className='bg-white mr-3 border border-solid border-purple-950 rounded-full p-1'><Image src="user.svg" alt="profile pic" width={24} height={24} ></Image></div><div><strong>{username}</strong> donated <strong>$</strong><strong>{username}</strong> with a message "<strong>{username}</strong>" . </div></div>
+                    <div className='mb-8 text-gray-400 flex justify-center'><div className='bg-white mr-3 border border-solid border-purple-950 rounded-full p-1'><Image src="user.svg" alt="profile pic" width={24} height={24}></Image></div><div><strong>{username}</strong> donated <strong>$</strong><strong>{username}</strong> with a message "<strong>{username}</strong>" . </div></div>
                 </div>
                 <div className='w-[40vw] h-[60vh]  text-center bg-slate-950'>
                     <div className='font-bold p-5 my-2 text-xl'>Make a Payment</div>
