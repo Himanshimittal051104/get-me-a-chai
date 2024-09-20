@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const connectDB = async () => {
+const connectDb = async () => {
   try {
     const conn = await mongoose.connect(`mongodb://localhost:27017/chai`)
       // useNewUrlParser: true,
@@ -12,4 +12,4 @@ const connectDB = async () => {
     // If the connection fails, process.exit(1) is called, which terminates the current Node.js process. The 1 signifies that the process is exiting due to failure (non-zero exit code). This is important because we usually don't want our app to continue running if it can't connect to the database.
   }
 }
-export default connectDB
+export default connectDb
