@@ -1,7 +1,4 @@
-import NextAuth from 'next-auth';
-import GitHubProvider from 'next-auth/providers/github';
-import User from '@/models/User';
-import connectDb from '@/db/connectDb';
+let isConnected; // Track connection status
 
 export default NextAuth({
   providers: [
@@ -12,33 +9,37 @@ export default NextAuth({
     }),
   ],
   callbacks: {
-    async signIn({ user, account, profile, email, credentials }) {
+    async signIn({ user, account, profile }) {
       try {
-        if (account.provider == "github") {
-          // const client=await mongoose.connect("mongodb://localhost:27017/chai");
-          //by doing this previous statement it will create multiple connection at times when multiple users are signing in at the same time
+        // Connect to DB only if not already connected
+        if (!isConnected) {
           await connectDb();
-          // const currentUser=client.db("users").collection("users").findOne({email:email})
-          const email=profile.email;
-          const currentUser = await User.findOne({email: email})
-          if (!currentUser) {
-            const username= email.split("@")[0];
-            const newUser = await User.create({
-              email: email,
-              username:username,
-            })
-          }
+          isConnected = true;
+        }
+
+        const email = profile.email;
+        const currentUser = await User.findOne({ email });
+        
+        if (!currentUser) {
+          const username = email.split("@")[0];
+          await User.create({
+            email,
+            username,
+          });
         }
         return true;
       } catch (error) {
         console.error("Error in signIn callback:", error);
         return false;
       }
-
     },
-    async session({ session, token, user }) {
+    async session({ session }) {
       try {
-        await connectDb();
+        if (!isConnected) {
+          await connectDb();
+          isConnected = true;
+        }
+        
         const dbUser = await User.findOne({ email: session.user.email });
         if (dbUser) {
           session.user.name = dbUser.username;
@@ -50,4 +51,4 @@ export default NextAuth({
       }
     },
   }
-})
+});
