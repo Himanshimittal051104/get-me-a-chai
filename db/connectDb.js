@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const connectDb = async () => {
   try {
-    const conn = await mongoose.connect(`mongodb://localhost:27017/chai`)
+    const conn = await mongoose.connect(process.env.MONGODB_URI);
       // useNewUrlParser: true,
       // no longer required with Mongoose 6.x and later, as it is now the default behavior.
     console.log(`MongoDB Connected: ${conn.connection.host}`);
