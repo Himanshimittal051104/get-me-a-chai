@@ -19,11 +19,13 @@ export default NextAuth({
           //by doing this previous statement it will create multiple connection at times when multiple users are signing in at the same time
           await connectDb();
           // const currentUser=client.db("users").collection("users").findOne({email:email})
+          const email=profile.email;
           const currentUser = await User.findOne({email: email})
           if (!currentUser) {
+            const username= email.split("@")[0];
             const newUser = await User.create({
               email: email,
-              username: email.split("@")[0],
+              username:username,
             })
           }
         }
